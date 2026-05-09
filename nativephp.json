@@ -1,0 +1,136 @@
+{
+    "name": "wilsonatb/in-app-purchases",
+    "version": "1.0.0",
+    "description": "Cross-platform in-app purchases for NativePHP Mobile",
+    "namespace": "InAppPurchases",
+    "category": "payments",
+    "license": "MIT",
+    "pricing": {
+        "type": "free"
+    },
+    "author": {
+        "name": "Wilsonatb",
+        "email": "wilsonatb@users.noreply.github.com"
+    },
+    "platforms": [
+        "android",
+        "ios"
+    ],
+    "bridge_functions": [
+        {
+            "name": "InAppPurchases.Initialize",
+            "android": "com.wilsonatb.plugins.in_app_purchases.InAppPurchasesFunctions.Initialize",
+            "ios": "InAppPurchasesFunctions.Initialize",
+            "description": "Initialize billing/store listeners and sync state"
+        },
+        {
+            "name": "InAppPurchases.IsAvailable",
+            "android": "com.wilsonatb.plugins.in_app_purchases.InAppPurchasesFunctions.IsAvailable",
+            "ios": "InAppPurchasesFunctions.IsAvailable",
+            "description": "Check whether purchases are currently available"
+        },
+        {
+            "name": "InAppPurchases.QueryProductDetails",
+            "android": "com.wilsonatb.plugins.in_app_purchases.InAppPurchasesFunctions.QueryProductDetails",
+            "ios": "InAppPurchasesFunctions.QueryProductDetails",
+            "description": "Query in-app products by identifiers"
+        },
+        {
+            "name": "InAppPurchases.BuyConsumable",
+            "android": "com.wilsonatb.plugins.in_app_purchases.InAppPurchasesFunctions.BuyConsumable",
+            "ios": "InAppPurchasesFunctions.BuyConsumable",
+            "description": "Start consumable purchase flow"
+        },
+        {
+            "name": "InAppPurchases.BuyNonConsumable",
+            "android": "com.wilsonatb.plugins.in_app_purchases.InAppPurchasesFunctions.BuyNonConsumable",
+            "ios": "InAppPurchasesFunctions.BuyNonConsumable",
+            "description": "Start non-consumable purchase flow"
+        },
+        {
+            "name": "InAppPurchases.BuySubscription",
+            "android": "com.wilsonatb.plugins.in_app_purchases.InAppPurchasesFunctions.BuySubscription",
+            "ios": "InAppPurchasesFunctions.BuySubscription",
+            "description": "Start subscription purchase flow"
+        },
+        {
+            "name": "InAppPurchases.CompletePurchase",
+            "android": "com.wilsonatb.plugins.in_app_purchases.InAppPurchasesFunctions.CompletePurchase",
+            "ios": "InAppPurchasesFunctions.CompletePurchase",
+            "description": "Complete a pending purchase (acknowledge or finish transaction)"
+        },
+        {
+            "name": "InAppPurchases.ConsumePurchase",
+            "android": "com.wilsonatb.plugins.in_app_purchases.InAppPurchasesFunctions.ConsumePurchase",
+            "ios": "InAppPurchasesFunctions.ConsumePurchase",
+            "description": "Consume an Android consumable purchase"
+        },
+        {
+            "name": "InAppPurchases.RestorePurchases",
+            "android": "com.wilsonatb.plugins.in_app_purchases.InAppPurchasesFunctions.RestorePurchases",
+            "ios": "InAppPurchasesFunctions.RestorePurchases",
+            "description": "Restore previously owned purchases"
+        },
+        {
+            "name": "InAppPurchases.SyncPurchases",
+            "android": "com.wilsonatb.plugins.in_app_purchases.InAppPurchasesFunctions.SyncPurchases",
+            "ios": "InAppPurchasesFunctions.SyncPurchases",
+            "description": "Synchronize purchases from platform stores"
+        },
+        {
+            "name": "InAppPurchases.GetPendingPurchases",
+            "android": "com.wilsonatb.plugins.in_app_purchases.InAppPurchasesFunctions.GetPendingPurchases",
+            "ios": "InAppPurchasesFunctions.GetPendingPurchases",
+            "description": "Get locally tracked purchases pending completion"
+        },
+        {
+            "name": "InAppPurchases.GetStatus",
+            "android": "com.wilsonatb.plugins.in_app_purchases.InAppPurchasesFunctions.GetStatus",
+            "ios": "InAppPurchasesFunctions.GetStatus",
+            "description": "Get plugin runtime status"
+        },
+        {
+            "name": "InAppPurchases.CountryCode",
+            "android": "com.wilsonatb.plugins.in_app_purchases.InAppPurchasesFunctions.CountryCode",
+            "ios": "InAppPurchasesFunctions.CountryCode",
+            "description": "Get storefront country code"
+        }
+    ],
+    "android": {
+        "min_version": 26,
+        "permissions": [
+            "com.android.vending.BILLING"
+        ],
+        "repositories": [],
+        "dependencies": {
+            "implementation": [
+                "com.android.billingclient:billing:8.3.0"
+            ]
+        },
+        "activities": [],
+        "services": [],
+        "receivers": [],
+        "providers": []
+    },
+    "ios": {
+        "min_version": "18.0",
+        "info_plist": {},
+        "dependencies": {
+            "swift_packages": [],
+            "pods": []
+        },
+        "capabilities": [
+            "InAppPurchase"
+        ]
+    },
+    "events": [
+        "Wilsonatb\\InAppPurchases\\Events\\PurchaseUpdated",
+        "Wilsonatb\\InAppPurchases\\Events\\ConnectionChanged",
+        "Wilsonatb\\InAppPurchases\\Events\\AvailabilityChanged",
+        "Wilsonatb\\InAppPurchases\\Events\\RestoreCompleted",
+        "Wilsonatb\\InAppPurchases\\Events\\OperationFailed"
+    ],
+    "hooks": {
+        "copy_assets": "nativephp:in-app-purchases:copy-assets"
+    }
+}
