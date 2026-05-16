@@ -20,6 +20,11 @@ php artisan native:plugin:list
 - Android dependency: `com.android.billingclient:billing:8.3.0`
 - iOS capability: In-App Purchase enabled in app target
 
+## Screenshots
+
+<img  height="500" alt="Image" src="https://github.com/user-attachments/assets/eec6aee8-6172-42e9-ad6d-853a19be81af" />
+<img  height="510" alt="Image" src="https://github.com/user-attachments/assets/5cb3af57-8b8a-4ae1-90cf-0bb2c1640741" />
+
 ## iOS Testing Setup
 
 In-app purchases **will not work** without products registered in App Store Connect — even in the sandbox environment.
